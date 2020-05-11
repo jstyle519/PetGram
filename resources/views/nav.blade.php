@@ -12,7 +12,7 @@
 
     @guest
     <li class="nav-item">
-      <a class="nav-link" href="">ログイン</a>
+      <a class="nav-link" href="{{ route('register') }}">ログイン</a>
     </li>
     @endguest
 
@@ -40,7 +40,8 @@
     </button>
     </div>
     </li>
-    <form id="logout-button" method="POST" action="">
+    <form id="logout-button" method="POST" action="{{ route('logout') }}">
+      @csrf
     </form>
     <!-- Dropdown -->
     @endauth
