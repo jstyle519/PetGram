@@ -10,7 +10,8 @@
       <div class="col-12">
         <div class="card mt-3">
           <div class="card-body pt-0">
-            @include('error_card_list')
+            {{-- <form class="upload-images p-0 border-0" id="new_article" enctype="multipart/form-data" action="{{ route('articles.store') }}" accept-charset="UTF-8" method="POST">
+            @include('error_card_list') --}}
             <div class="card-text">
               <form method="POST" action="{{ route('articles.store') }}">
                 <div class="mb-3">
@@ -19,6 +20,7 @@
               </form>
             </div>
           </div>
+          {{-- </form> --}}
         </div>
       </div>
     </div>
