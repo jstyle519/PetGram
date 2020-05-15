@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,10 @@ class ArticleController extends Controller
         $article->user_id = $request->user()->id;
         $article->save();
         // $request->photo->storeAs('public/article_images', $article->id . '.jpg');
+        $request->tags->each(function ($tagName) use ($article) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $article->tags()->attach($tag);
+        });
         return redirect()->route('articles.index');
     }
 
