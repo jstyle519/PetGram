@@ -19,6 +19,11 @@ class ArticleController extends Controller
         $articles = Article::all()->sortByDesc('created_at');
 
         return view('articles.index', ['articles' => $articles]);
+
+        $articles = Article::paginate(10);
+
+        return view('articles', [
+        'articles' => $articles,]);
     }
 
     public function create()
@@ -103,4 +108,5 @@ class ArticleController extends Controller
             'countLikes' => $article->count_likes,
         ];
     }
+    
 }

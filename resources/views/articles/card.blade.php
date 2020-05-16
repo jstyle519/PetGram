@@ -46,7 +46,7 @@
               @csrf
               @method('DELETE')
               <div class="modal-body">
-                {{ $article->title }}を削除します。よろしいですか？
+                {{ $article->body }}を削除します。よろしいですか？
               </div>
               <div class="modal-footer justify-content-between">
                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
@@ -63,12 +63,12 @@
   <div class="card-body pt-0">
     <h3 class="h4 card-title">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
-        {{ $article->title }}
+        {{ $article->body }}
       </a>
     </h3>
-    <div class="card-text">
+    {{-- <div class="card-text">
       {!! nl2br(e( $article->body )) !!}
-    </div>
+    </div> --}}
   </div>
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
@@ -94,4 +94,6 @@
       </div>
     @endif
   @endforeach
+
+  {{-- コメント機能 --}}
 </div>
