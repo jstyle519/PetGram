@@ -5,7 +5,7 @@
     @endif
     <span>
       <strong>
-        <a class="no-text-decoration black-color" href="/users/{{ $comment->user->id }}">{{ $comment->user->name }}</a>
+        <a class="no-text-decoration black-color" href="{{ route('users.show', ['name' => $article->user->name]) }}">{{ $comment->user->name }}</a>
       </strong>
     </span>
     <span>{{ $comment->comment }}</span>

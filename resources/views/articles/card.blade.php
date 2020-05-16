@@ -46,7 +46,7 @@
               @csrf
               @method('DELETE')
               <div class="modal-body">
-                {{ $article->body }}を削除します。よろしいですか？
+                {{ $article->title }}を削除します。よろしいですか？
               </div>
               <div class="modal-footer justify-content-between">
                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
@@ -63,12 +63,12 @@
   <div class="card-body pt-0">
     <h3 class="h4 card-title">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
-        {{ $article->body }}
+        {{ $article->title }}
       </a>
     </h3>
-    {{-- <div class="card-text">
+    <div class="card-text">
       {!! nl2br(e( $article->body )) !!}
-    </div> --}}
+    </div>
   </div>
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
@@ -96,4 +96,18 @@
   @endforeach
 
   {{-- コメント機能 --}}
+  <div class="card-body pt-0">
+  <div id="comment-post-{{ $article->id }}">
+    @include('articles.comment_list')
+  </div>
+  <hr>
+  <div class="row actions" id="comment-form-post-{{ $article->id }}">
+     <form class="w-80" id="new_comment" action="/articles/{{ $article->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+      {{csrf_field()}}
+      <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
+      <input value="{{ $article->id }}" type="hidden" name="article_id" />
+      <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
+    </form>
+  </div>
+  </div>
 </div>
