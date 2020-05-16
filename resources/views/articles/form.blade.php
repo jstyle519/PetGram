@@ -15,4 +15,3 @@
   <textarea name="body" required class="form-control" rows="16" placeholder="本文">{{ $article->body ?? old('body') }}</textarea>
   {{-- <input type="file" name="photo" accept="image/jpeg,image/gif,image/png" /> --}}
 </div>
-</div>
