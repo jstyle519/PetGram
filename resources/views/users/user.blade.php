@@ -2,7 +2,7 @@
   <div class="card-body">
     <div class="d-flex flex-row">
       <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-        <i class="fas fa-user-circle fa-3x"></i>
+        <i class="fas fas fa-cat fa-3x"></i>
       </a>
       @if( Auth::id() !== $user->id )
         <follow-button
@@ -22,10 +22,10 @@
   </div>
   <div class="card-body">
     <div class="card-text">
-      <a href="" class="text-muted">
+      <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted">
         {{ $user->count_followings }} フォロー
       </a>
-      <a href="" class="text-muted">
+      <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted">
         {{ $user->count_followers }} フォロワー
       </a>
     </div>
