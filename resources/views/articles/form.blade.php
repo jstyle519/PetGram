@@ -19,11 +19,11 @@
       <div class="col-md-10 mt-2">
         <label>☆自慢のペットの写真を添付してください。</label><br>
         <form class="upload-images p-0 border-0" id="new_post" enctype="multipart/form-data" method="POST">
-        <input type="file" name="image_path" accept="image/jpeg,image/gif,image/png" />
+        <input type="file" name="image" accept="image/jpeg,image/gif,image/png" />
       </div>
     </div>
     <script type="text/javascript">
-      $('#post_image_path').bind('change', function() {
+      $('#article_image').bind('change', function() {
         var size_in_megabytes = this.files[0].size/1024/1024;
         if (size_in_megabytes > 1) {
           alert('ファイルサイズの最大は1MBまでです。違う画像を選んでください。');
