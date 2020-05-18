@@ -70,7 +70,8 @@
     {{-- 写真投稿 --}}
 
     <a href="/articles/{{ $article->user->id }}">
-      <img src="/storage/images/{{ $article->id }}.jpg" class="card-img-top" />
+      <img src="data:image/png;base64,{{ $article->image }}" class="card-img-top" />
+      {{-- <img src="/storage/images/{{ $article->id }}.jpg" class="card-img-top" /> --}}
     </a>
     {{-- 本文 --}}
     <div class="card-text">
