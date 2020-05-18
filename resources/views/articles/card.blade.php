@@ -1,7 +1,7 @@
 <div class="card mt-3">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-    <i class="fas fas fa-paw fa-3x mr-1"></i>
+    <i class="fas fas fa-paw fa-3x mr-3"></i>
     </a>
     <div>
       <div class="font-weight-bold">
@@ -61,11 +61,18 @@
 
   </div>
   <div class="card-body pt-0">
-    <h3 class="h4 card-title">
+    <p class="h4 card-title">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
+      {{-- タイトル --}}
         {{ $article->title }}
       </a>
-    </h3>
+    </p>
+    {{-- 写真投稿 --}}
+
+    <a href="/articles/{{ $article->user->id }}">
+      <img src="/storage/images/{{ $article->id }}.jpg" class="card-img-top" />
+    </a>
+    {{-- 本文 --}}
     <div class="card-text">
       {!! nl2br(e( $article->body )) !!}
     </div>
@@ -85,11 +92,11 @@
     @if($loop->first)
       <div class="card-body pt-0 pb-4 pl-3">
         <div class="card-text line-height">
-    @endif
-          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+          @endif
+            <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
             {{ $tag->hashtag }}
-          </a>
-    @if($loop->last)
+            </a>
+          @if($loop->last)
         </div>
       </div>
     @endif
@@ -97,17 +104,16 @@
 
   {{-- コメント機能 --}}
   <div class="card-body pt-0">
-  <div id="comment-post-{{ $article->id }}">
-    @include('articles.comment_list')
-  </div>
-  <hr>
-  <div class="row actions" id="comment-form-post-{{ $article->id }}">
-     <form class="w-80" id="new_comment" action="/articles/{{ $article->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
-      {{csrf_field()}}
-      <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
-      <input value="{{ $article->id }}" type="hidden" name="article_id" />
-      <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
-    </form>
-  </div>
+    <div id="comment-post-{{ $article->id }}">
+      @include('articles.comment_list')
+    </div>
+    <hr>
+    <div class="row actions" id="comment-form-post-{{ $article->id }}">
+      <form class="w-80" id="new_comment" action="/articles/{{ $article->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+        {{csrf_field()}}
+        <input value="{{ $article->id }}" type="hidden" name="article_id" />
+        <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
+        </form>
+    </div>
   </div>
 </div>

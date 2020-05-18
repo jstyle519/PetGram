@@ -56,7 +56,7 @@ return [
         'string'  => ':attributeは、:value文字以上で指定してください。',
         'array'   => ':attributeには、:value個以上のアイテムを指定してください。',
     ],
-    'image'                => ':attributeには画像ファイルを指定してください。',
+    'image'                => ':attributeは必ず画像ファイルを指定してください。',
     'in'                   => '選択された:attributeは正しくありません。',
     'in_array'             => ':attributeには:otherの値を指定してください。',
     'integer'              => ':attributeは整数で指定してください。',

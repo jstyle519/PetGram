@@ -6,6 +6,8 @@ use App\Article;
 use App\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+
 
 class ArticleController extends Controller
 {
@@ -17,10 +19,10 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all()->sortByDesc('created_at');
-
+        
         return view('articles.index', ['articles' => $articles]);
 
-        $articles = Article::paginate(10);
+        // $articles = Article::paginate(10);
 
         return view('articles', [
         'articles' => $articles,]);
@@ -39,10 +41,13 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request, Article $article)
     {
+        
         $article->fill($request->all());
+        
         $article->user_id = $request->user()->id;
         $article->save();
-        // $request->photo->storeAs('public/article_images', $article->id . '.jpg');
+        $request->image_path->storeAs('public/images', $article->id . '.jpg');
+
         $request->tags->each(function ($tagName) use ($article) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $article->tags()->attach($tag);
