@@ -19,14 +19,6 @@ class CommentsController extends Controller
     }
     public function store(Request $request)
     {
-        // $params = $request->validate([
-        //     'article_id' => 'required|exists:posts,id',
-        //     'body' => 'required|max:2000',
-        // ]);
-
-        // $article = Article::findOrFail($params['article_id']);
-        // $article->comments()->create($params);
-        // return redirect()->route('article.show', ['article' => $article]);
         // Commentモデル作成
         $comment = new Comment;
         $comment->comment = $request->comment;

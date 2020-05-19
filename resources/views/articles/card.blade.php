@@ -71,7 +71,6 @@
 
     <a href="/articles/{{ $article->user->id }}">
       <img src="data:image/png;base64,{{ $article->image }}" class="card-img-top" />
-      {{-- <img src="/storage/images/{{ $article->id }}.jpg" class="card-img-top" /> --}}
     </a>
     {{-- 本文 --}}
     <div class="card-text">
@@ -112,6 +111,7 @@
     <div class="row actions" id="comment-form-post-{{ $article->id }}">
       <form class="w-80" id="new_comment" action="/articles/{{ $article->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
         {{csrf_field()}}
+        <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
         <input value="{{ $article->id }}" type="hidden" name="article_id" />
         <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
         </form>
