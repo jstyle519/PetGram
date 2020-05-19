@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model
 {
@@ -12,7 +13,7 @@ class Comment extends Model
 
     public function article()
     {
-        return $this->belongsto(App\Article);
+        return $this->belongsTo('App\Article');
     }
 
     public function user()
