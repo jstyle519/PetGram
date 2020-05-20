@@ -33,6 +33,6 @@ class CommentsController extends Controller
     {
         $comment = Comment::find($request->comment_id);
         $comment->delete();
-        return redirect('/');
+        return redirect()->route('articles.index');
     }
 }

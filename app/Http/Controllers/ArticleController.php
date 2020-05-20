@@ -45,7 +45,6 @@ class ArticleController extends Controller
         $article->user_id = $request->user()->id;
         $article->image = base64_encode(file_get_contents($request->image));
         $article->save();
-        // $request->image_path->storeAs('public/images', $article->id . '.jpg');
 
         $request->tags->each(function ($tagName) use ($article) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);
