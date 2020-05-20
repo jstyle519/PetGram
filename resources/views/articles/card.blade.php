@@ -114,7 +114,7 @@
         {{-- <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" /> --}}
         <input value="{{ $article->id }}" type="hidden" name="article_id" />
         <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
-        </form>
+      </form>
     </div>
   </div>
 </div>
