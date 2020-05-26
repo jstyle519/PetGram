@@ -1,7 +1,7 @@
 # Pet Gram
 
 ## 概要
-### Petに特化したSNSサービス
+#### Petに特化したSNSサービス
 
 ## 機能一覧
 - 投稿一覧表示
@@ -21,5 +21,4 @@
 - 画像のアップロード　-DBにbase64をいれ表示
 - デプロイ　-heroku
 
-URL
-PetGram[http://pet-gram.herokuapp.com/]
+### [URL](http://pet-gram.herokuapp.com/)
