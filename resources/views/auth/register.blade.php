@@ -9,13 +9,14 @@
         <h1 class="text-center mt-5"><a class="text-dark fas fa-paw mr-2" href="/">Pet Gram</a></h1>
         <br>
         <h2 class="text-center mb-4"><div class="text-dark">~ うちのペットを自慢しよう ~</a></h2>
-        <div class="card mt-3">
-          <div class="card-body text-center">
-            <h2 class="h3 card-title text-center mt-2">ユーザー登録</h2>
+          <h3 class="text-center mb-4"><div class="text-dark">🐶ペット専用のSNSサイトです🐱</a></h3>
+          <div class="card mt-3">
+            <div class="card-body text-center">
+              <h2 class="h3 card-title text-center mt-2">ユーザー登録</h2>
 
-            @include('error_card_list')
+                @include('error_card_list')
 
-            <div class="card-text">
+                <div class="card-text">
               
               <form method="POST" action="{{ route('register') }}">
                 @csrf
