@@ -26,4 +26,4 @@
 - 画像のアップロード　-DBにbase64をいれ表示
 - デプロイ　-heroku
 
-### [URL](http://pet-gram.herokuapp.com/)
+### [URL](https://pet-gram.herokuapp.com/)
