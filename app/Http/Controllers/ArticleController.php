@@ -7,6 +7,7 @@ use App\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 
 class ArticleController extends Controller
@@ -44,6 +45,9 @@ class ArticleController extends Controller
         
         $article->user_id = $request->user()->id;
         $article->image = base64_encode(file_get_contents($request->image));
+        // $uploadImg = $article->image = $request->file('image');
+        // $path = Storage::disk('s3')->putFile('/', $uploadImg, 'public');
+        // $article->image = Storage::disk('s3')->url($path);
         $article->save();
 
         $request->tags->each(function ($tagName) use ($article) {

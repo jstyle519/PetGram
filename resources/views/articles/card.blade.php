@@ -71,6 +71,7 @@
 
     <a href="/articles/{{ $article->user->id }}">
       <img src="data:image/png;base64,{{ $article->image }}" class="card-img-top" />
+      {{-- <img src="{{ $article->image }}" class="card-img-top" style="width: auto; height: 30%;"/> --}}
     </a>
     {{-- 本文 --}}
     <div class="card-text">

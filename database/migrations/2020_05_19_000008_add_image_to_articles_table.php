@@ -15,6 +15,9 @@ class AddImageToArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->longText('image')->nullable();
+            // $table->bigIncrements('id');
+            // $table->string('image');
+            // $table->timestamps();
         });
     }
 
