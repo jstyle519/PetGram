@@ -23,7 +23,7 @@
 ## 技術一覧
 - 言語　- PHP
 - 開発環境　-MAMP
-- フレームワーク/ライブラリ - Larabel / BootStrap / Vue.js / JQuery
+- フレームワーク/ライブラリ - Laravel / BootStrap / Vue.js / JQuery
 - DB - ローカル/MySQL デプロイ後/PostgreSQL
 - 画像のアップロード　-DBにbase64をいれ表示
 - デプロイ　-heroku
