@@ -24,7 +24,7 @@
 - 言語　- PHP
 - 開発環境　-MAMP
 - フレームワーク/ライブラリ - Laravel / BootStrap / Vue.js / JQuery
-- DB - ローカル/MySQL デプロイ後/PostgreSQL
+- DB - ローカル/MySQL
 - 画像のアップロード　-DBにbase64をいれ表示
 - デプロイ　-Heroku
 
