@@ -26,6 +26,6 @@
 - フレームワーク/ライブラリ - Laravel / BootStrap / Vue.js / JQuery
 - DB - ローカル/MySQL
 - 画像のアップロード　-DBにbase64をいれ表示
-- デプロイ　-Herok
+- デプロイ　-Heroku
 
 ### [URL](https://pet-gram.herokuapp.com/)
