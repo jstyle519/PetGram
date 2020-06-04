@@ -1,3 +1,4 @@
+{{-- ユーザーネーム --}}
 <div class="card mt-3">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
@@ -34,6 +35,7 @@
       <!-- dropdown -->
 
       <!-- modal -->
+      {{-- 作成した記事の削除か編集か --}}
       <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -42,6 +44,7 @@
                 <span aria-hidden="true">×</span>
               </button>
             </div>
+            {{-- 削除 --}}
             <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}">
               @csrf
               @method('DELETE')
@@ -78,6 +81,7 @@
       {!! nl2br(e( $article->body )) !!}
     </div>
   </div>
+  {{-- いいね機能 --}}
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
       <article-like
