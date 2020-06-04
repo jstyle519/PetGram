@@ -1,3 +1,4 @@
+{{-- 記事の詳細画面 --}}
 @extends('app')
 
 @section('title', '記事詳細')
