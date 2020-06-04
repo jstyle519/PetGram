@@ -7,12 +7,12 @@
 - 記事投稿機能
 - 記事削除機能
 - 記事編集機能
-- 投稿一覧表示
+- 投稿一覧表示機能
 - 投稿別詳細機能
-- いいね（Ajax）
+- いいね（Ajax）機能
 - ユーザーがいいねした記事別機能
 - 投稿タグ機能
-- 投稿タグ別一覧
+- 投稿タグ別一覧機能
 - コメント機能
 - 画像ファイルアップロード機能
 - フォロー・フォロワー機能
@@ -21,9 +21,11 @@
 - DBテーブルリレーション機能
 
 ## 技術一覧
-- フレームワーク/ライブラリ - Larabel / BootStrap / Vue.js / JQuery
-- DB - ローカル/MySQL デプロイ後/PostgreSQL
+- 言語　- PHP
+- 開発環境　-MAMP
+- フレームワーク/ライブラリ - Laravel / BootStrap / Vue.js / JQuery
+- DB - ローカル/MySQL
 - 画像のアップロード　-DBにbase64をいれ表示
-- デプロイ　-heroku
+- デプロイ　-Heroku
 
 ### [URL](https://pet-gram.herokuapp.com/)
