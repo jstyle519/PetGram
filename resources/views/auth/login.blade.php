@@ -1,7 +1,8 @@
+{{-- ログイン画面 --}}
 @extends('app')
 
 @section('title', 'ログイン')
-
+{{-- ログイン画面のレイアウト --}}
 @section('content')
   <div class="container">
     <div class="row">
