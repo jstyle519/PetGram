@@ -1,3 +1,4 @@
+{{-- ホーム画面の記事一覧画面 --}}
 @extends('app')
 
 @section('title', '記事一覧')
