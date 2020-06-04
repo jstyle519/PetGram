@@ -1,9 +1,10 @@
+{{-- 記事の新規作成画面 --}}
 @extends('app')
 
 @section('title', '記事投稿')
 
 @include('nav')
-
+{{-- BootStrapレイアウト --}}
 @section('content')
   <div class="container">
     <div class="row">
