@@ -1,3 +1,4 @@
+{{-- 記事編集機能画面 --}}
 @extends('app')
 
 @section('title', '記事更新')
