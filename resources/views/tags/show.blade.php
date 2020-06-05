@@ -1,3 +1,4 @@
+{{-- タグ画面 --}}
 @extends('app')
 
 @section('title', $tag->hashtag)
