@@ -16,7 +16,7 @@ class ArticleController extends Controller
     {
         $this->authorizeResource(Article::class, 'article');
     }
-    
+    // article user/ likes / tags /indexへリレーション
     public function index()
     {
         $articles = Article::all()->sortByDesc('created_at')
@@ -26,7 +26,7 @@ class ArticleController extends Controller
         return view('articles', [
         'articles' => $articles,]);
     }
-
+    //  create tags
     public function create()
     {
         $allTagNames = Tag::all()->map(function ($tag) {
@@ -37,17 +37,17 @@ class ArticleController extends Controller
             'allTagNames' => $allTagNames,
         ]);
     }
-
+    
+    //    index.blade.phpへリレーション
     public function store(ArticleRequest $request, Article $article)
     {
         
         $article->fill($request->all());
         
         $article->user_id = $request->user()->id;
+        // base64画像を保存
         $article->image = base64_encode(file_get_contents($request->image));
-        // $uploadImg = $article->image = $request->file('image');
-        // $path = Storage::disk('s3')->putFile('/', $uploadImg, 'public');
-        // $article->image = Storage::disk('s3')->url($path);
+       
         $article->save();
 
         $request->tags->each(function ($tagName) use ($article) {
@@ -57,6 +57,7 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
+    // edit
     public function edit(Article $article)
     {
         $tagNames = $article->tags->map(function ($tag) {
@@ -73,6 +74,7 @@ class ArticleController extends Controller
         ]);
     }
 
+    // update
     public function update(ArticleRequest $request, Article $article)
     {
         $article->fill($request->all())->save();
@@ -84,12 +86,14 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
+    // delete
     public function destroy(Article $article)
     {
         $article->delete();
         return redirect()->route('articles.index');
     }
 
+    // show
     public function show(Article $article)
     {
         return view('articles.show', ['article' => $article]);
@@ -105,7 +109,8 @@ class ArticleController extends Controller
             'countLikes' => $article->count_likes,
         ];
     }
-
+       
+        // likes
     public function unlike(Request $request, Article $article)
     {
         $article->likes()->detach($request->user()->id);
