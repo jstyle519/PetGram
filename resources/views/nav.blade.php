@@ -1,3 +1,4 @@
+{{-- ナビバー画面 --}}
 <nav class="navbar navbar-expand navbar-dark blue-gradient">
 
   <a class="navbar-brand" href="/"><i class="far fas fa-paw mr-1"></i>Pet Gram</a>
