@@ -12,22 +12,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Article extends Model
 {
     //
+    // バリデーション
     protected $fillable = [
         'title',
         'body',
         'image',
     ];
     
+    // userリレーション
     public function user(): BelongsTo
     {
         return $this->belongsTo('App\User');
     }
 
+    // commentsリレーション
     public function comments()
     {
         return $this->hasMany('App\Comment');
     }
 
+    // likes
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\User', 'likes')->withTimestamps();
@@ -45,6 +49,7 @@ class Article extends Model
         return $this->likes->count();
     }
 
+    // tag
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany('App\Tag')->withTimestamps();
