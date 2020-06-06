@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // userにtag,kikes,articles渡す
     public function show(string $name)
     {
         $user = User::where('name', $name)->first()
@@ -19,6 +20,7 @@ class UserController extends Controller
         ]);
     }
 
+    // likes
     public function likes(string $name)
     {
         $user = User::where('name', $name)->first()
@@ -32,6 +34,7 @@ class UserController extends Controller
         ]);
     }
 
+    // フォロー
     public function followings(string $name)
     {
         $user = User::where('name', $name)->first()
@@ -45,6 +48,7 @@ class UserController extends Controller
         ]);
     }
     
+    // フォロワー
     public function followers(string $name)
     {
         $user = User::where('name', $name)->first()
@@ -73,6 +77,7 @@ class UserController extends Controller
         return ['name' => $name];
     }
     
+    // フォロー外す
     public function unfollow(Request $request, string $name)
     {
         $user = User::where('name', $name)->first();
