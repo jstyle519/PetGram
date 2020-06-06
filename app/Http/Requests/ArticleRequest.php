@@ -21,6 +21,7 @@ class ArticleRequest extends FormRequest
      *
      * @return array
      */
+    // バリデーション
     public function rules()
     {
         return [
@@ -40,6 +41,7 @@ class ArticleRequest extends FormRequest
         ];
     }
 
+    // タグを５個まで保管可能
     public function passedValidation()
     {
         $this->tags = collect(json_decode($this->tags))
